@@ -13,27 +13,27 @@ public class JokerService {
 
     private static final Logger log = LoggerFactory.getLogger(JokerService.class);
 
-    Random random = new Random();
+    private static final Random RANDOM = new Random();
 
-    public Set<Integer> extractNumbers(){
+    public Set<Integer> extractNumbers() {
         Set<Integer> extraction = new HashSet<>();
         int number;
-        while(extraction.size()<5){
-            number = random.nextInt(46);
-            if(number>0){
+        while (extraction.size() < 5) {
+            number = RANDOM.nextInt(46);
+            if (number > 0) {
                 extraction.add(number);
             }
         }
-        log.info("The extracted numbers are: {}", extraction );
+        log.info("The extracted numbers are: {}", extraction);
         return extraction;
     }
 
-    public int extractJoker(){
+    public int extractJoker() {
         int joker;
         do {
-            joker = random.nextInt(21);
-        } while(joker == 0);
-        log.info("Joker is: {}",joker);
+            joker = RANDOM.nextInt(21);
+        } while (joker == 0);
+        log.info("Joker is: {}", joker);
         return joker;
     }
 }
